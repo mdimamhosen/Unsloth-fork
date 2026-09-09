@@ -20,12 +20,12 @@
     "schema/*.json"
   ],
   "scripts": {
-    "build": "jlpm build:lib && jlpm build:labextension:dev",
-    "build:prod": "jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
-    "build:lib": "tsc --sourceMap",
-    "build:lib:prod": "tsc",
-    "build:labextension": "jupyter-builder build .",
-    "build:labextension:dev": "jupyter-builder build --development True .",
+    "build": "node init && jlpm build:lib && jlpm build:labextension:dev",
+    "build:prod": "node init && jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
+    "build:lib": "node init && tsc --sourceMap",
+    "build:lib:prod": "node init && tsc",
+    "build:labextension": "node init && jupyter-builder build .",
+    "build:labextension:dev": "node init && jupyter-builder build --development True .",
     "clean": "rimraf lib tsconfig.tsbuildinfo unsloth-jupyterlab/labextension"
   },
   "dependencies": {
